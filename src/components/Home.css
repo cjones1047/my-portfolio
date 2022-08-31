@@ -1,0 +1,16 @@
+.brand-statement-container {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    font-weight: 600;
+}
+
+img {
+    animation: fade-in 2s forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}

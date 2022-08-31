@@ -22,6 +22,7 @@ import SportsGolfIcon from '@mui/icons-material/SportsGolf';
 
 let pages = [
 	{ str: 'About Me', link: ''},
+	{ str: 'Projects', link: 'my-projects'}
 ]
 
 const Header = () => {
@@ -38,7 +39,7 @@ const Header = () => {
 	};
 
 	return (
-		<AppBar position="static" style={{backgroundColor: 'rgba(182, 182, 182, 0.8)'}}>
+		<AppBar position="static" style={{backgroundColor: 'rgba(182, 182, 182, 0.8)', width: '80%', margin: '40px auto', borderRadius: '30px'}}>
 			<Container maxWidth="">
 				<Toolbar disableGutters>
 					{/* <SportsGolfIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -143,11 +144,10 @@ const Header = () => {
 									key={i}
 									className="appbarButton"
 									onClick={() => {
-										handleCloseNavMenu()
 										navigate(`/${pageLink}`, {replace: false})
 									}}
 									
-									sx={{ my: 2, color: 'white', display: 'block', fontWeight: 'bold' }}
+									sx={{ my: 2, color: 'white', display: 'block', fontWeight: 'bold', fontSize: '15px', borderRadius: '30px', margin: '20px' }}
 								>
 									{pageStr}
 								</Button>

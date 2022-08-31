@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import Home from './components/Home.js'
+import Project from './components/projects/Project'
 
 const App = () => {
 
@@ -42,17 +43,15 @@ const App = () => {
 						/>
 					} 
 				/>
-				{/* <Route 
-					path='/find-a-course' 
+				<Route 
+					path='/my-projects' 
 					element={
-						<FindCourse 
-							msgAlert={msgAlert} 
-							user={user}
-							setCourseToShow={setCourseToShow}
+						<Project 
+							msgAlert={msgAlert}
 						/>
-					} 
+					}
 				/>
-				<Route
+				{/* <Route
 					path='/my-courses'
 					element={
 						<RequireAuth user={user}>
