@@ -1,0 +1,11 @@
+.info-button {
+    font-weight: 600 !important;
+    font-size: 18px;
+    color: rgba(151, 238, 255, 1) !important;
+    text-shadow: 0.25px 0.25px 2.5px black, -0.25px -0.25px 2.5px black !important
+}
+
+.info-button:hover {
+    
+
+}

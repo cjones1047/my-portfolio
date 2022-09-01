@@ -1,3 +1,5 @@
+import './ContactMe.css'
+
 import axios from "axios";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
@@ -16,9 +18,21 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
 import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import LinkedinLogo from '../../assets/linked-in-icon.png'
 import GithubLogo from '../../assets/github-icon.png'
+
+const theme = createTheme({
+	palette: {
+	  primary: {
+		main: 'rgba(170, 170, 170, 1)',
+	  },
+	  secondary: {
+		main: 'rgba(0, 0, 0, 1)',
+	  },
+	},
+});
 
 const ContactMe = () => {
 	// const { msgAlert, user } = props
@@ -45,34 +59,54 @@ const ContactMe = () => {
             </div>
             
 
-            <div style={{float: 'right', textAlign: 'right', marginBottom: '20px'}}>
-                <div>
-                    <Button 
-                        variant="outlined" 
-                        href="#contained-buttons"
-                        style={{fontWeight: 600, marginBottom: '10px'}}
-                    >
-                        View my
-                        <img
-                            className='linkedin-icon'
-                            src={LinkedinLogo}
-                            alt="LinkedIn Logo"
-                            height={'fit-content'}
-                            width={'auto'}
-                            // style={{borderRadius: '20px', zIndex: 1}}
-                        />
-                    </Button>
+            <ThemeProvider theme={theme}>
+                <div style={{float: 'right', textAlign: 'right', marginBottom: '20px'}}>
+                    <div>
+                        <Button
+                            className="info-button"
+                            variant="contained"
+                            color="primary"
+                            href="https://www.linkedin.com/in/casey-jones-11113b83/"
+                            rel="noreferrer" 
+                            target="_blank"
+                            size="large"
+                            style={{marginBottom: '15px'}}
+                        >
+                            View my
+                            <img
+                                className='linkedin-icon'
+                                src={LinkedinLogo}
+                                alt="LinkedIn Logo"
+                                height={'35px'}
+                                width={'auto'}
+                                style={{marginLeft: '10px'}}
+                            />
+                        </Button>
+                    </div>
+                    <div>
+                        <Button
+                            className="info-button"
+                            variant="contained"
+                            color="primary"     
+                            href="https://github.com/cjones1047"
+                            rel="noreferrer"
+                            target="_blank"
+
+                            size="large"
+                        >
+                            Check out my
+                            <img
+                                className='github-logo'
+                                src={GithubLogo}
+                                alt="GitHub Logo"
+                                height={'35px'}
+                                width={'auto'}
+                                style={{marginLeft: '10px'}}
+                            />
+                        </Button>
+                    </div>
                 </div>
-                <div>
-                    <Button 
-                        variant="outlined"       
-                        href="#contained-buttons"
-                        style={{fontWeight: 600}}
-                    >
-                        Check out my GitHub
-                    </Button>
-                </div>
-            </div>
+            </ThemeProvider>
 
         </>
 	)
