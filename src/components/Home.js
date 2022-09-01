@@ -18,6 +18,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import ContactMe from './shared/ContactMe';
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -50,7 +52,8 @@ const Home = () => {
 		<>
 			<div className="brand-statement-container">
 
-					<img 
+					<img
+						className='profile-image'
 						src={Pic1}
 						alt="Pic1"
 						width={viewportWidth < 450 ? '90%' : 400}
@@ -117,9 +120,9 @@ const Home = () => {
                     
                 </CardActions>
 
-                <Collapse in={expanded} timeout="auto" unmountOnExit={true}>
+                <Collapse in={expanded} timeout="auto" mountOnEnter={false} unmountOnExit={false}>
                     <CardContent>
-                        Here
+						<ContactMe />
                     </CardContent>
                 </Collapse>
             </Card>

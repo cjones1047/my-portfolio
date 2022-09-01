@@ -5,11 +5,12 @@
     max-width: 800px;
 }
 
-img {
-    animation: fade-in 2s forwards;
+.profile-image {
+    animation: fade-in 2s;
 }
 
 @keyframes fade-in {
-    0% { opacity: 0; transform: translateX(100%); overflow-x: hidden; }
-    100% { opacity: 1 }
+    from, to { overflow: hidden; }
+    0% { opacity: 0; transform: translateX(100%); }
+    100% { opacity: 1; }
 }
