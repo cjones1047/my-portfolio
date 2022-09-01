@@ -113,7 +113,7 @@ const Home = () => {
 							?
 							<div style={{ fontSize: '30px' }}>Contact Me</div>
 							:
-							<div style={{ fontSize: '15px', transform: 'rotate(180deg)' }}>Close</div>
+							<div style={{ fontSize: '20px', transform: 'rotate(180deg)' }}>Close</div>
 						}
 						<ExpandMoreIcon style={{height: '40px', width: '40px'}} />
 					</ExpandMore>
