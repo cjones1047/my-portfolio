@@ -17,7 +17,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
 import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
 
-import { Link } from "@mui/material";
+import LinkedinLogo from '../../assets/linked-in-icon.png'
+import GithubLogo from '../../assets/github-icon.png'
 
 const ContactMe = () => {
 	// const { msgAlert, user } = props
@@ -33,13 +34,45 @@ const ContactMe = () => {
                 
             </div>
 
-            <Typography color="text.secondary" style={{fontSize: '20px', marginBottom: '5px'}}>
-                <EmailTwoToneIcon/>&nbsp;&nbsp;<a href="mailto:cjmj1047@gmail.com">cjmj1047@gmail.com</a>
-            </Typography>
+            <div style={{float: 'left', marginBottom: '20px'}}>
+                <Typography color="text.secondary" style={{fontSize: '20px', marginBottom: '5px'}}>
+                    <EmailTwoToneIcon/>&nbsp;&nbsp;<a href="mailto:cjmj1047@gmail.com">cjmj1047@gmail.com</a>
+                </Typography>
+                
+                <Typography color="text.secondary" style={{fontSize: '20px'}}>
+                    <LocalPhoneTwoToneIcon/>&nbsp;&nbsp;<a href="tel:2197072088">(219) 707-2088</a>
+                </Typography>
+            </div>
             
-            <Typography color="text.secondary" style={{fontSize: '20px'}}>
-                <LocalPhoneTwoToneIcon/>&nbsp;&nbsp;<a href="tel:2197072088">(219) 707-2088</a>
-            </Typography>
+
+            <div style={{float: 'right', textAlign: 'right', marginBottom: '20px'}}>
+                <div>
+                    <Button 
+                        variant="outlined" 
+                        href="#contained-buttons"
+                        style={{fontWeight: 600, marginBottom: '10px'}}
+                    >
+                        View my
+                        <img
+                            className='linkedin-icon'
+                            src={LinkedinLogo}
+                            alt="LinkedIn Logo"
+                            height={'fit-content'}
+                            width={'auto'}
+                            // style={{borderRadius: '20px', zIndex: 1}}
+                        />
+                    </Button>
+                </div>
+                <div>
+                    <Button 
+                        variant="outlined"       
+                        href="#contained-buttons"
+                        style={{fontWeight: 600}}
+                    >
+                        Check out my GitHub
+                    </Button>
+                </div>
+            </div>
 
         </>
 	)
