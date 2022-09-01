@@ -9,6 +9,9 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
@@ -25,134 +28,69 @@ let pages = [
 	{ str: 'Projects', link: 'my-projects'}
 ]
 
+const theme = createTheme({
+	palette: {
+	  primary: {
+		main: 'rgba(117, 244, 252, 1)',
+	  },
+	  secondary: {
+		main: '#11cb5f',
+	  },
+	},
+  });
+
 const Header = () => {
-	const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+	const [selection, setSelection] = React.useState(
+		window.localStorage.getItem('selected') 
+			? 
+				window.localStorage.getItem('selected') 
+			: 
+				'About Me'
+	);
+
+	const handleChange = (event, newSelection) => {
+		setSelection(newSelection);
+		window.localStorage.setItem('selected', newSelection)
+	};
 
 	let navigate = useNavigate()
 
-	const handleOpenNavMenu = (event) => {
-		setAnchorElNav(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
-
 	return (
-		<AppBar position="static" style={{backgroundColor: 'rgba(182, 182, 182, 0.8)', width: '80%', margin: '40px auto', borderRadius: '30px'}}>
+		<AppBar position="static" style={{backgroundColor: 'rgba(182, 182, 182, 1)', width: '80%', margin: '40px auto', borderRadius: '30px'}}>
 			<Container maxWidth="">
 				<Toolbar disableGutters>
-					{/* <SportsGolfIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-					<Typography
-						variant="h6"
-						noWrap
-						component="h6"
-						sx={{
-							mr: 2,
-							display: { xs: 'none', md: 'flex' },
-							fontFamily: '',
-							fontWeight: 700,
-							letterSpacing: '.3rem',
-							color: 'inherit',
-							textDecoration: 'none',
-						}}
-					>
-						CADDYSTACK
-					</Typography> */}
-
-					{/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleOpenNavMenu}
-							color="inherit"
-						>
-							<MenuIcon />
-						</IconButton>
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left',
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left',
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
-							sx={{
-								display: { xs: 'block', md: 'none' },
-							}}
-						>
-							{pages.map((page, i) => {
-								const pageStr = page.str
-								const pageLink = page.link
-								return (
-									<MenuItem 
-										key={i}
-										onClick={() => {
-											handleCloseNavMenu()
-											navigate(`/${pageLink}`, {replace: false})
-										}}
-										divider={i > (pages.length) - 2 ? false : true}
-										style={{width: '70vw', maxWidth: '300px'}}
-										>
-											<Typography
-												textAlign="center"
-												// style={profileLinkStyle}
-											>
-												{pageStr}
-											</Typography>
-									</MenuItem>
-								)
-							})}
-						</Menu>
-					</Box> */}
-
-					{/* <SportsGolfIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-					<Typography
-						variant="h5"
-						noWrap
-						component="h5"
-						sx={{
-							mr: 2,
-							display: { xs: 'flex', md: 'none' },
-							flexGrow: 1,
-							fontFamily: '',
-							fontWeight: 700,
-							letterSpacing: '.3rem',
-							color: 'inherit',
-							textDecoration: 'none',
-						}}
-					>
-						CADDYSTACK
-					</Typography> */}
 					<Box
 						// sx={{ display: { xs: 'flex', md: 'flex' }, m: 1 }}
 						style={{display: 'flex', justifyContent: 'center', width: '100%'}}
 					>
-						{pages.map((page, i) => {
-							const pageStr = page.str
-							const pageLink = page.link
-							return (
-								<Button
-									key={i}
-									className="appbarButton"
-									onClick={() => {
-										navigate(`/${pageLink}`, {replace: false})
-									}}
-									
-									sx={{ my: 2, color: 'white', display: 'block', fontWeight: 'bold', fontSize: '15px', borderRadius: '30px', margin: '20px' }}
-								>
-									{pageStr}
-								</Button>
-							)
-						})}
+						<ThemeProvider theme={theme}>
+							<ToggleButtonGroup
+								color='primary'
+								value={selection}
+								exclusive
+								onChange={handleChange}
+								aria-label="Selection"
+							>
+								{pages.map((page, i) => {
+									const pageStr = page.str
+									const pageLink = page.link
+									return (
+										<ToggleButton
+											key={i}
+											value={pageStr}
+											className="appbarButton"
+											onClick={() => {
+												navigate(`/${pageLink}`, {replace: false})
+											}}
+											sx={{ my: 2, color: 'white', display: 'block', fontWeight: 'bold', fontSize: '15px', borderRadius: '30px'}}
+										>
+											{pageStr}
+										</ToggleButton>
+									)
+								})}
+							</ToggleButtonGroup>
+						</ThemeProvider>
 					</Box>
 				</Toolbar>
 			</Container>

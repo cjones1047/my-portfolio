@@ -34,6 +34,13 @@ const Home = () => {
 	// console.log('props in home', props)
 
 	const [expanded, setExpanded] = useState(false);
+	const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
+
+	const resizeWindow = () => {
+		setViewportWidth(window.innerWidth)
+	}
+
+	window.onresize = resizeWindow
 
 	const handleExpandClick = () => {
         setExpanded(!expanded)
@@ -42,23 +49,40 @@ const Home = () => {
 	return (
 		<>
 			<div className="brand-statement-container">
-				<div>
+
 					<img 
 						src={Pic1}
 						alt="Pic1"
-						width={400}
+						width={viewportWidth < 450 ? '90%' : 400}
 						height={'auto'}
-						style={{borderRadius: '20px'}}
+						style={{borderRadius: '20px', zIndex: 1}}
 					/>
-				</div>
-				<div
-					style={{ fontSize:'75px', textAlign: 'right', margin: 'auto 0px 0px auto', marginLeft: '40px', border: '2px solid black', justifyContent: 'right', alignItems: 'middle'}}
-				>
-					Hi,<br/> I'm <span style={{color: 'rgba(151, 238, 255, 1)', textShadow: '0.25px 0.25px 4px black, -0.25px -0.25px 4px black'}}>Casey</span>
-				</div>
+
+				{ viewportWidth > 800 
+					?
+						<div
+							style={{ fontSize: '75px', fontWeight: 600, textAlign: 'right', margin: 'auto 0px 0px auto', justifyContent: 'right', alignItems: 'middle', zIndex: 2 }}
+						>
+							Hi,<br /> I'm <span style={{ color: 'rgba(151, 238, 255, 1)', textShadow: '0.25px 0.25px 4px black, -0.25px -0.25px 4px black' }}>Casey</span>
+						</div>
+					:
+						null
+				}
+				
 			</div>
 
-			<Card sx={{ margin: '20px auto', maxWidth: 800 }} raised={true}>
+			{ viewportWidth <= 800 
+				?
+					<div
+						style={{ fontSize: '75px', fontWeight: 600, textAlign: 'left', margin: '0px 20px', justifyContent: 'right', alignItems: 'middle', zIndex: 1 }}
+					>
+						Hi,<br /> I'm <span style={{ color: 'rgba(151, 238, 255, 1)', textShadow: '0.25px 0.25px 4px black, -0.25px -0.25px 4px black' }}>Casey</span>
+					</div>
+				:
+					null
+			}
+
+			<Card sx={{ margin: viewportWidth > 800 ? '20px auto' : '20px 20px', maxWidth: 800 }} raised={true}>
                 {/* <CardHeader
                     title={courseDetails.name}
                     style={{backgroundColor: 'rgba(233, 233, 233, 0.8)'}}

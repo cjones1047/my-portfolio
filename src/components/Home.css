@@ -1,9 +1,8 @@
 .brand-statement-container {
     margin: 0 auto;
     display: flex;
-    width: 100%;
+    justify-content: center;
     max-width: 800px;
-    font-weight: 600;
 }
 
 img {
@@ -11,6 +10,6 @@ img {
 }
 
 @keyframes fade-in {
-    0% { opacity: 0 }
+    0% { opacity: 0; transform: translateX(100%); overflow-x: hidden; }
     100% { opacity: 1 }
 }
