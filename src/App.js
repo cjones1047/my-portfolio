@@ -14,7 +14,13 @@ import Project from './components/projects/Project'
 const App = () => {
 
 	const [msgAlerts, setMsgAlerts] = useState([])
-	const [courseToShow, setCourseToShow] = useState(null)
+	const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
+
+	const resizeWindow = () => {
+		setViewportWidth(window.innerWidth)
+	}
+
+	window.onresize = resizeWindow
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -40,6 +46,7 @@ const App = () => {
 					element={
 						<Home
 							msgAlert={msgAlert}
+							viewportWidth={viewportWidth}
 						/>
 					} 
 				/>
@@ -48,6 +55,7 @@ const App = () => {
 					element={
 						<Project 
 							msgAlert={msgAlert}
+							viewportWidth={viewportWidth}
 						/>
 					}
 				/>

@@ -31,18 +31,15 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-const Home = () => {
+const Home = (props) => {
 	// const { msgAlert, user } = props
 	// console.log('props in home', props)
 
+	const {
+		viewportWidth
+	} = props
+
 	const [expanded, setExpanded] = useState(false);
-	const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
-
-	const resizeWindow = () => {
-		setViewportWidth(window.innerWidth)
-	}
-
-	window.onresize = resizeWindow
 
 	const handleExpandClick = () => {
         setExpanded(!expanded)
