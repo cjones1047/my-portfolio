@@ -9,6 +9,7 @@ import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { Divider } from '@mui/material';
 
 import projects from '../../api/project-list';
 
@@ -74,9 +75,20 @@ const Project = (props) => {
             <TabPanel value={value} key={i} index={i} dir={theme.direction}>
                 {projects[i].description.map((listItem, i) => {
                     return (
-                        <li key={i}>
-                            {listItem}
-                        </li>
+                        <>
+                            {i === 0 
+                                ?
+                                    null
+                                :
+                                    <Divider
+                                        style={{margin: '7px 0px'}}
+                                    />
+                            }
+                            <span key={i} style={{}}>
+                                {listItem} <br/>
+                            </span>
+                        </>
+                        
                     )
                 })}
                 <a href={project.link}>{project.link}</a>
