@@ -9,9 +9,10 @@ import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Divider } from '@mui/material';
+import { Divider, ListItemText } from '@mui/material';
 
 import projects from '../../api/project-list';
+import { SpaRounded } from '@mui/icons-material';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -42,7 +43,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
     return {
         id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`
     };
 }
 
@@ -72,26 +73,15 @@ const Project = (props) => {
 
     const tabPanels = projects.map((project, i) => {
         return (
-            <TabPanel value={value} key={i} index={i} dir={theme.direction}>
+            <TabPanel value={value} index={i} key={`tab-${i}`} dir={theme.direction}>
                 {projects[i].description.map((listItem, i) => {
                     return (
-                        <>
-                            {i === 0 
-                                ?
-                                    null
-                                :
-                                    <Divider
-                                        style={{margin: '7px 0px'}}
-                                    />
-                            }
-                            <span key={i} style={{}}>
-                                {listItem} <br/>
-                            </span>
-                        </>
-                        
+                        <li key={`list-item-${i}`} style={{ listStyle: 'none', marginBottom: '15px', paddingTop: '15px', borderTop: i === 0 ? 'none' : '2px solid rgba(140, 140, 140, 1)'}}>
+                            {listItem}
+                        </li>
                     )
                 })}
-                <a href={project.link}>{project.link}</a>
+                <a key={`link${i}`} href={project.link}>{project.link}</a>
             </TabPanel>
         )
     })
