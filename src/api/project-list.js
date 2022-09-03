@@ -1,3 +1,5 @@
+import Caddystack from '../assets/Caddystack.png'
+
 const projects = [
     {
         title: 'Caddystack',
@@ -14,7 +16,7 @@ const projects = [
             `Front-end and back-end both deployed via Heroku`,
             `Leveraged Git and GitHub for version control`
         ],
-        screenshot: '',
+        pic: Caddystack,
         link: 'https://caddystack.herokuapp.com/'
     },
     {
