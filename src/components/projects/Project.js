@@ -4,15 +4,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Divider, ListItemText } from '@mui/material';
 
 import projects from '../../api/project-list';
-import { SpaRounded } from '@mui/icons-material';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -76,7 +73,7 @@ const Project = (props) => {
             <TabPanel value={value} index={i} key={`tab-${i}`} dir={theme.direction}>
                 {projects[i].description.map((listItem, i) => {
                     return (
-                        <li key={`list-item-${i}`} style={{ listStyle: 'none', marginBottom: '15px', paddingTop: '15px', borderTop: i === 0 ? 'none' : '2px solid rgba(140, 140, 140, 1)'}}>
+                        <li key={`list-item-${i}`} style={{ listStyle: 'none', marginBottom: '15px', paddingTop: '15px', borderTop: i === 0 ? 'none' : '1px solid rgba(140, 140, 140, 1)'}}>
                             {listItem}
                         </li>
                     )
@@ -107,10 +104,6 @@ const Project = (props) => {
                 centered={viewportWidth > (250*projects.length) ? true : false}
                 
             >
-                {/* <Tab label="Item One"  style={{fontWeight: 600, }} {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-                <Tab label="Item Four" {...a11yProps(3)} /> */}
                 {tabs}
             </Tabs>
             <SwipeableViews
@@ -119,18 +112,6 @@ const Project = (props) => {
                 onChangeIndex={handleChangeIndex}
             >
                 {tabPanels}
-                {/* <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
-                </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
-                </TabPanel>
-                <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
-                </TabPanel>
-                <TabPanel value={value} index={3} dir={theme.direction}>
-                    Item Four
-                </TabPanel> */}
             </SwipeableViews>
         </Box>
     );
