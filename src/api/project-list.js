@@ -1,4 +1,7 @@
 import Caddystack from '../assets/Caddystack.png'
+import Stockpile from '../assets/Stockpile.png'
+import Goggles from '../assets/Goggles.png'
+import TicTacToe from '../assets/Tic-Tac-Toe.png'
 
 const projects = [
     {
@@ -30,8 +33,30 @@ const projects = [
             `Made all fetch API calls from the back-end to send data to the front-end.`,
             `Utilized HTML5 and Bootstrap, CSS3, and jQuery to create overall visual aspects and animations.`
         ],
-        screenshot: '',
+        pic: Stockpile,
         link: 'https://stockpile-1047.herokuapp.com/'
+    },
+    {
+        title: 'Goggles',
+        description: [
+            `Used Reddit API to fetch image data on any keyword search topic, and visually render the top six most relevant images into a format for a quiz game`,
+            `Utilized HTML5 and Bootstrap, CSS3, and JavaScript to create visual aspects and animations`,
+            `Leveraged Git and GitHub for version control`,
+            `Deployed via gh-pages`
+        ],
+        pic: Goggles,
+        link: 'https://cjones1047.github.io/goggles/'
+    },
+    {
+        title: 'Tic-Tac-Toe',
+        description: [
+            `Created a dynamic, interactive tic-tac-toe game board`,
+            `Utilized HTML5, CSS3, and Vanilla JavaScript to create visual aspects and animations`,
+            `Leveraged Git and GitHub for version control`,
+            `Deployed via gh-pages`
+        ],
+        pic: TicTacToe,
+        link: 'https://cjones1047.github.io/tic-tac-toe/'
     }
 ]
 

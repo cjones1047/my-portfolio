@@ -1,9 +1,6 @@
 import './Header.css'
-// import React, { Fragment } from 'react'
-// import Nav from 'react-bootstrap/Nav'
-// import Navbar from 'react-bootstrap/Navbar'
+
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react';
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -12,16 +9,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import SportsGolfIcon from '@mui/icons-material/SportsGolf';
 
 let pages = [
 	{ str: 'About Me', link: ''},

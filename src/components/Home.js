@@ -1,20 +1,15 @@
 import './Home.css'
 import Pic1 from '../assets/5B7F4FD2-C222-4580-BCE2-1B49F04F6545_1_201_a.jpg'
 
-import axios from "axios";
-import { useEffect, useLayoutEffect, useState } from "react";
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react";
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -32,8 +27,6 @@ const ExpandMore = styled((props) => {
 }));
 
 const Home = (props) => {
-	// const { msgAlert, user } = props
-	// console.log('props in home', props)
 
 	const {
 		viewportWidth
@@ -83,11 +76,7 @@ const Home = (props) => {
 			}
 
 			<Card sx={{ margin: viewportWidth > 800 ? '20px auto' : '20px 20px', maxWidth: 800 }} raised={true}>
-                {/* <CardHeader
-                    title={courseDetails.name}
-                    style={{backgroundColor: 'rgba(233, 233, 233, 0.8)'}}
-                    // subheader="Date:"
-                /> */}
+
                 <CardContent>
                     <Typography color="text.secondary" style={{textAlign: 'justify'}}>
 						A creative, task-oriented and efficient software engineer. I strive to combine all the best I see in humanity every day with the consistency and scalability of the best computer programs. My perspective and my former experience as a full-time registered nurse have given me the communicational skills necessary to understand what problems affect people the most. It is with this understanding that I am able to most positively affect change for clients.
@@ -95,10 +84,6 @@ const Home = (props) => {
                 </CardContent>
                 
 				<CardActions disableSpacing>
-                    
-                    {/* <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton> */}
 					<ExpandMore
 						expand={expanded}
 						onClick={handleExpandClick}
@@ -114,7 +99,6 @@ const Home = (props) => {
 						}
 						<ExpandMoreIcon style={{height: '40px', width: '40px'}} />
 					</ExpandMore>
-                    
                 </CardActions>
 
                 <Collapse in={expanded} timeout="auto" mountOnEnter={false} unmountOnExit={false}>
