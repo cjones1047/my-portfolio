@@ -1,21 +1,8 @@
 import './ContactMe.css'
 
-import axios from "axios";
-import { useEffect, useLayoutEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'
-
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
 import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -35,10 +22,6 @@ const theme = createTheme({
 });
 
 const ContactMe = () => {
-	// const { msgAlert, user } = props
-	// console.log('props in home', props)
-
-    let navigate = useNavigate()
 
 	return (
         <>
@@ -57,7 +40,6 @@ const ContactMe = () => {
                     <LocalPhoneTwoToneIcon/>&nbsp;&nbsp;<a href="tel:2197072088">(219) 707-2088</a>
                 </Typography>
             </div>
-            
 
             <ThemeProvider theme={theme}>
                 <div style={{float: 'right', textAlign: 'right', marginBottom: '20px'}}>

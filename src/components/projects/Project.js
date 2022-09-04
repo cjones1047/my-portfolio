@@ -72,7 +72,7 @@ const Project = (props) => {
 
                 <span style={{display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: viewportWidth > 600 ? '20px' : '15px'}}>
                     <LinkTwoToneIcon style={{marginRight: '15px', height: viewportWidth > 600 ? '40px' : '30px', width: 'auto'}}/>
-                    <a key={`link${i}`} href={project.link} target={'_blank'}>{project.link}</a>
+                    <a key={`link${i}`} href={project.link} target={'_blank'} rel="noreferrer" >{project.link}</a>
                 </span>
 
                 <img
