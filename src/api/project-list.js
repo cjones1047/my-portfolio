@@ -2,6 +2,7 @@ import Caddystack from '../assets/Caddystack.png'
 import Stockpile from '../assets/Stockpile.png'
 import Goggles from '../assets/Goggles.png'
 import TicTacToe from '../assets/Tic-Tac-Toe.png'
+import BookTag from '../assets/BookTag.png'
 
 const projects = [
     {
@@ -21,6 +22,28 @@ const projects = [
         ],
         pic: Caddystack,
         link: 'https://caddystack.herokuapp.com/'
+    },
+    {
+        title: 'BookTag',
+        description: [
+            "Team project completed with three other developers",
+            "Developed using Agile Scrum methodology with Kanban board (utilized via Trello) for separation of individual developer tasks",
+            "Included twice-daily team meetings for sprint updates",
+            "Created a MERN (MongoDB, Express, React.js, Node.js) stack that facilitated any user starting or joining a conversation about a certain book",
+            "Front-end React app utilized Bootstrap as styling library",
+            "Third-party Google Books API used to retrieve data concerning any book a user searched",
+            "Made RESTful API fetch calls to an Express, MongoDB, Node.js backend handling all create, read, update, delete (CRUD) operations, and tested all backend routes during development using Postman",
+            "Mongoose used to define and implement two schemas (books and users) and one subdocument (comments were a subdocument of books) for separate MongoDB collections",
+            "Implemented ES6 tagged template literals along with JSX and CSS3 to provide style and flexbox layout of the application",
+            "Back-end MEN stack created with MongoDB, Express, Node.js and queried with Axios requests",
+            "Front-end deployed via Netlify to custom domain",
+            "Back-end deployed to Fly.io",
+            "Leveraged Git and GitHub for version control",
+            "Developed using Visual Studio Code IDE"
+
+        ],
+        pic: BookTag,
+        link: 'https://www.tagsomebooks.com/'
     },
     {
         title: 'Stockpile',
